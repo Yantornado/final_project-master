@@ -6,3 +6,16 @@ h3{
     text-align: center;
 }
 
+p{
+    text-align: right;
+}
+
+body{
+    background-color: aquamarine;
+}
+
+#class{
+        width :   60%;
+ text-align: center;
+}
+
