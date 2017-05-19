@@ -2,6 +2,27 @@ var namespace = "http://www.w3.org/2000/svg"
 
 // Write your code here!
 
+function myFunction(){
+  var random = Math.random()
+  if(random < .3){
+    makeImage("http://awesomecsgoitems.weebly.com/uploads/4/6/9/3/46936787/s614382405871487337_p1_i1_w640.png", 50,5, 100, 100)
+  }else if(random < .5){
+    makeImage("https://ip.bitcointalk.org/?u=http%3A%2F%2Fi.imgur.com%2FlFXJgNl.png&t=576&c=BIkv9PbItLJ4Qg", 50,5, 100,100)
+}else if (random <.7){
+  makeImage("https://steamuserimages-a.akamaihd.net/ugc/362902762343444869/73222656D19FE65B8B81ADA6B945C7B1547B40C3/", 50,5, 100,100)
+}else if (random < .9){
+  makeRect(45,15,110,80,"aquamarine",1)
+    makeImage("https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DfVlxgLQFFibKkJQN3wfLYYgJK7dKyg5KKh8j4NrrFnm5D8fp9g-7J4cL03VLl-hBoYDvwcIDDdg87aQyD8lm-kOq5jJ-0usvJznBr6HN0sXyOgVXp1sWipDG9/256fx255f", 50,5, 100,100)
+}else{
+    makeRect(45,15,110,80,"aquamarine",1)
+    makeImage("https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf2PLacDBA5ciJnJm0gPL2IITdn2xZ_Pp9i_vG8MKj2Qbl_EdlZziiddOXdAY2YAvT-wW2xrjugJG_tcvNyyBn6SEm4XuMgVXp1n8qZn5H/", 50,5, 100,100)
+}
+location.reload
+}
+
+
+
+
 // DO NOT EDIT CODE BELOW THIS LINE!
 function getX(shape) {
   if (!shape) {
@@ -70,7 +91,7 @@ function setY(shape, y) {
     var yDiff = parseFloat(shape.getAttribute("y2")) - parseFloat(shape.getAttribute("y1"))
     shape.setAttribute("y1", y)
     shape.setAttribute("y2", y + yDiff)
-  } 
+  }
 }
 
 function move(shape, dx, dy) {
@@ -108,7 +129,7 @@ function makeCircle(cx, cy, r, fill, opacity) {
   circle.setAttribute("r", r)
   circle.setAttribute("fill", fill)
   circle.setAttribute("opacity", opacity)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(circle)
   return circle
@@ -122,7 +143,7 @@ function makeRect(x, y, width, height, fill, opacity) {
   rect.setAttribute("height", height)
   rect.setAttribute("fill", fill)
   rect.setAttribute("opacity", opacity)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(rect)
   return rect
@@ -136,7 +157,7 @@ function makeEllipse(cx, cy, rx, ry, fill, opacity) {
   ellipse.setAttribute("ry", ry)
   ellipse.setAttribute("fill", fill)
   ellipse.setAttribute("opacity", opacity)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(ellipse)
   return ellipse
@@ -151,7 +172,7 @@ function makeLine(x1, y1, x2, y2, stroke, strokeWidth, opacity) {
   line.setAttribute("stroke", stroke)
   line.setAttribute("stroke-width", strokeWidth)
   line.setAttribute("opacity", opacity)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(line)
   return line
@@ -164,7 +185,7 @@ function makePolyline(points, stroke, strokeWidth, opacity) {
   polyline.setAttribute("stroke-width", strokeWidth)
   polyline.setAttribute("opacity", opacity)
   polyline.setAttribute("fill", "none")
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(polyline)
   return polyline
@@ -175,7 +196,7 @@ function makePolygon(points, fill, opacity) {
   polygon.setAttribute("points", points)
   polygon.setAttribute("opacity", opacity)
   polygon.setAttribute("fill", fill)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(polygon)
   return polygon
@@ -190,7 +211,7 @@ function makeText(message, x, y, fontSize, fontFamily, fill, opacity) {
   text.setAttribute("font-family", fontFamily)
   text.setAttribute("fill", fill)
   text.setAttribute("opacity", opacity)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(text)
   return text
@@ -204,7 +225,7 @@ function makeImage(url, x, y, width, height, opacity) {
   image.setAttribute("width", width)
   image.setAttribute("height", height)
   image.setAttribute("opacity", opacity)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(image)
   return image
@@ -221,7 +242,7 @@ function collides(shape1, shape2) {
   } else {
     throw "Oops, that kind of shape isn't supported by the collide function!"
   }
-  
+
   var xMin, xMax, yMin, yMax
   if (shape2.hasAttribute("x")) {
     xMin = getX(shape2)
@@ -246,7 +267,7 @@ function collides(shape1, shape2) {
   } else {
     throw "Oops, that kind of shape isn't supported by the collide function!"
   }
-  return (centerX > xMin && 
+  return (centerX > xMin &&
           centerX < xMax &&
          centerY > yMin &&
          centerY < yMax)
